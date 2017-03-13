@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="renderer" content="webkit">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<meta name="viewport" content="width=device-width, initial-scale=0.74, maximum-scale=0.74, user-scalable=no">
+<title>demo</title>
+
+
+<link rel="stylesheet" href="http://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+<link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" >
+<script src="http://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+
+<link rel="stylesheet" href="../src/kanNotify.css" >
+<script src="../src/kanNotify.js"></script>
+
+
+
+
+<!--[if lt IE 9]>
+  <script src="http://cdn.bootcss.com/html5shiv/3.7.3/html5shiv-printshiv.js"></script>  
+  <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>  
+<![endif]-->
+
+
+</head>
+
+<body>
+<div class="container-fluid">
+
+	<div class="well" id="type-btn-bar">
+	  <a class="btn btn-success" data-status="success" data-msg="觀自在菩薩，行深般若波羅蜜多時">success</a>
+	  <a class="btn btn-danger" data-status="error" data-msg="色不異空，空不異色，色即是空，空即是色">error</a>
+	  <a class="btn btn-info" data-status="info" data-msg="不生不滅，不垢不淨，不增不減">info</a>
+	  <a class="btn btn-warning" data-status="warning" data-msg="心無罣礙，無罣礙故，無有恐佈">warning</a>
+	  <a class="btn btn-default" data-status="default" data-msg="揭諦　揭諦　波羅揭諦　波羅僧揭諦　菩提薩婆訶" >default</a>
+	</div>
+
+
+
+	<article>
+		<h3>般若波羅蜜多心經</h3>
+		<p>唐　三藏法師　玄奘　譯</p>
+		<p>觀自在菩薩，行深般若波羅蜜多時，照見五蘊皆空，度一切苦厄。</p>
+		<p>舍利子！色不異空，空不異色，色即是空，空即是色，受想行識亦復如是，舍利子！是諸法空相，不生不滅，不垢不淨，不增不減。是故空中無色無受想行識，無眼耳鼻舌身意，無色聲香味觸法。無眼界乃至無意識界，無無明亦無無明盡，乃至無老死亦無老死盡。無苦集滅道。無智亦無得，以無所得故。</p>
+		<p>菩提薩埵，依般若波羅蜜多故，心無罣礙，無罣礙故，無有恐佈，遠離顛倒夢想，究竟涅槃。</p>
+		<p>三世諸佛，依般若波羅蜜多故，得阿耨多羅三藐三菩提。</p>
+		<p>故知般若波羅蜜多，是大神咒，是大明咒，是無上咒，是無等等咒，能除一切苦，真實不虛。故說般若波羅蜜多咒，即說咒曰：</p>
+		<p>揭諦　揭諦　波羅揭諦　波羅僧揭諦　菩提薩婆訶。</p>
+	</article>
+</div>
+
+
+<script type="text/javascript">
+	$('#type-btn-bar .btn').click(function(){
+		var msg = $(this).data('msg');
+		var type = $(this).data('status');
+		$.kanNotify.add({msg:msg,type:type});
+	})
+
+</script>
+</body>
+</html>

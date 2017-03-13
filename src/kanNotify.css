@@ -1,0 +1,17 @@
+
+/*.j-jNotify*/
+.kan-notify-wrapper { z-index: 3000;}
+.kan-notify-item {position: relative; margin-bottom:8px;  padding: 3px 30px 3px 10px; clear: both; display: inline-block; font-size: 14px; line-height: 1.6; background: #FFF; border:1px solid #DDD; border-radius:  3px  ; opacity:0.90 ; }
+.kan-notify-item .fa { margin-right: 8px;line-height: 1.6; font-size: 14px;}
+.kan-notify-item .kan-notify-close { position: absolute; right: 2px; top: 1px; display: inline-block; width: 10px; height: 10px; font-size: 10px; line-height: 1; text-decoration: none;transition:All 0.5s ease-in-out; }
+.kan-notify-item .kan-notify-close:hover {transform:rotate(180deg);}
+.kan-notify-item-info {background: #0574A0;  border-color: #086F95; color: #FFF}
+.kan-notify-item-info a {color: #FFF}
+.kan-notify-item-default {background: #444;  border-color: #333; color: #FFF}
+.kan-notify-item-default a {color: #FFF}
+.kan-notify-item-error { background:#A2291A; border-color: #A2291A; color:#fff } 
+.kan-notify-item-error a {color: #FFF}
+.kan-notify-item-warning { background:#E57117; border-color: #E57117; color:#fff } 
+.kan-notify-item-warning a {color: #FFF}
+.kan-notify-item-success { background:#347E15; border-color: #347E15; color:#fff } 
+.kan-notify-item-success a {color: #FFF}

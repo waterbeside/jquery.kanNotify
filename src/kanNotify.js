@@ -13,6 +13,7 @@
             ,auto_dismiss:4000
             ,allow_dismiss : true 
             ,wrapperWidth : "auto"
+            ,type:'default'
             ,iconDefault : {'info':'fa-info-circle','error':'fa-exclamation-circle','success':'fa-check-circle','warning':'fa-warning','default':'fa-chevron-circle-right','debug':'fa-bug'}
         },
         options :{},
@@ -21,11 +22,11 @@
         setting:function(options){
             this.defaults =  $.extend({}, this.defaults, options);
         },
-        add:function(params){
+        create:function(params){
             
             this.options = $.extend({}, this.defaults, params);
             var msg = this.options.msg ; 
-            var msgType = typeof(this.options.type) != 'undefined' ?  this.options.type :'default'  ;
+            var msgType =  this.options.type ;
             var iconDefault = this.options.iconDefault 
             
             var icon = typeof(this.options.icon) != 'undefined' ? this.options.icon : iconDefault[msgType] ;
@@ -58,6 +59,34 @@
             }
             if(this.options.callback){ this.options.callback(this.response); }else{ return(this.response); }
 
+        },
+        add:function(msg,type,setting){
+            var params = {};
+            if(typeof(msg)=="object"){
+                params = msg;
+            }else{
+                switch(typeof(type)){
+                    case 'object' :
+                        params = $.extend(type,{msg:msg});
+                        break;
+                    case 'function':
+                        params = {msg:msg,callback:type};
+                        break;
+                    default:
+                        switch(typeof(setting)){
+                            case 'object' : 
+                                params = $.extend(setting,{msg:msg,type:type});
+                            break;
+                            case 'function' :
+                                params = {msg:msg,type:type,callback:setting};
+                            break;
+                            default:
+                                params = {msg:msg,type:type};
+                        }
+                }
+               
+            }
+            return this.create(params);
         },
         //DOM
         //構造DOM外層:wrapper
@@ -110,7 +139,20 @@
         },
         closeAll : function(){
             $(".kan-notify-item").remove();      
-        }
+        },
+
+        success : function(msg,params){
+            return this.add(msg,'success',params);       
+        },
+        error : function(msg,params){
+            return this.add(msg,'error',params);       
+        },
+        warning : function(msg,params){
+            return this.add(msg,'warning',params);       
+        },
+        info : function(msg,params){
+            return this.add(msg,'info',params);       
+        },
         
     }
 

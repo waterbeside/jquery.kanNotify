@@ -1,0 +1,12 @@
+{
+  "name": "jquery.kanNotify",
+  "version": "1.0.0",
+  "author": "簡(Kan) <waterbeside@126.com>",
+  "homepage": "https://github.com/waterbeside/jquery.kanNotify",
+  "devDependencies": {
+    "grunt": "^1.0.1",
+    "grunt-contrib-jshint": "^1.1.0",
+    "grunt-contrib-less": "^1.4.1",
+    "grunt-contrib-uglify": "^3.0.1"
+  }
+}

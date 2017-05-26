@@ -1,17 +1,143 @@
+/* 變量 */
+@color-text: #fff;
+@color-success: #348f22;
+@color-success-text: lighten(@color-success, 60%);
+@color-success-border: darken(@color-success, 5%);
+@color-warning: #e17a00;
+@color-warning-text: lighten(@color-warning, 60%);
+@color-warning-border: darken(@color-warning, 5%);
+@color-error: #cf2715;
+@color-error-text: lighten(@color-error, 50%);
+@color-error-border: darken(@color-error, 5%);
+@color-info: #139acc;
+@color-info-text: lighten(@color-info, 50%);
+@color-info-border: darken(@color-info, 5%);
+@color-black: #1F2D3D;
+@color-black-text: lighten(@color-black, 60%);
+@color-black-border: darken(@color-black, 5%);
 
-/*.j-jNotify*/
-.kan-notify-wrapper { z-index: 3000;}
-.kan-notify-item {position: relative; margin-bottom:8px;  padding: 3px 30px 3px 10px; clear: both; display: inline-block; font-size: 14px; line-height: 1.6; background: #FFF; border:1px solid #DDD; border-radius:  3px  ; opacity:0.90 ; }
-.kan-notify-item .fa { margin-right: 8px;line-height: 1.6; font-size: 14px;}
-.kan-notify-item .kan-notify-close { position: absolute; right: 2px; top: 1px; display: inline-block; width: 10px; height: 10px; font-size: 10px; line-height: 1; text-decoration: none;transition:All 0.5s ease-in-out; }
-.kan-notify-item .kan-notify-close:hover {transform:rotate(180deg);}
-.kan-notify-item-info {background: #0574A0;  border-color: #086F95; color: #FFF}
-.kan-notify-item-info a {color: #FFF}
-.kan-notify-item-default {background: #444;  border-color: #333; color: #FFF}
-.kan-notify-item-default a {color: #FFF}
-.kan-notify-item-error { background:#A2291A; border-color: #A2291A; color:#fff } 
-.kan-notify-item-error a {color: #FFF}
-.kan-notify-item-warning { background:#E57117; border-color: #E57117; color:#fff } 
-.kan-notify-item-warning a {color: #FFF}
-.kan-notify-item-success { background:#347E15; border-color: #347E15; color:#fff } 
-.kan-notify-item-success a {color: #FFF}
+@item-font-size:14px;
+@close-btn-size: 12px;
+@icon-size: 14px;
+
+/* mixins */
+.kan-notify-item-variant(@background;@border;@text) {
+  background: @background;
+  border-color: @border;
+  color: @text;
+
+  a {
+    color: @text
+  }
+
+  .kan-notify-close {
+    color: darken(@text,10%);
+  }
+
+  .kan-notify-close:hover {
+    color: @text;
+  }
+}
+
+
+
+@keyframes in {
+  0% {
+    transform:translate(0,20px) ;
+    opacity: 0;
+  }
+
+  100% {
+    transform:translate(0,0)  ;
+    opacity: 1;
+  }
+}
+@keyframes out {
+  0% {
+    transform: translate(0,0);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translate(0,-20px);
+    opacity: 0;
+  }
+}
+
+
+.kan-notify-wrapper {
+  z-index: 3000;
+}
+
+.kan-in {
+  animation: in 0.3s linear 1;
+}
+
+.kan-out {
+  animation: out 0.3s linear 1;
+}
+
+.kan-notify-item {
+
+  position: relative;
+  margin-bottom: 8px;
+  padding: 5px 30px 5px 10px;
+  clear: both;
+  font-size: @item-font-size;
+  line-height: 1.6;
+  background: #FFF;
+  border: 1px solid #DDD;
+  border-radius: 3px;
+  opacity: 0.95;
+
+  .kan-text{
+    margin-left: (@icon-size + 7)
+  }
+  .kan-icon-wrap {
+    float:left;
+    display: inline-block;
+  }
+  .kan-icon {
+    font-size: @icon-size;
+  }
+
+  .kan-notify-close {
+    cursor: pointer;
+    color: @color-black;
+    text-align: center;
+    position: absolute;
+    right: 2px;
+    top: 1px;
+    display: inline-block;
+    width: @close-btn-size;
+    height: @close-btn-size;
+    font-size: @close-btn-size;
+    line-height: @close-btn-size;
+    text-decoration: none;
+    transition: All 0.5s ease-in-out;
+  }
+
+  .kan-notify-close:hover {
+    transform: rotate(180deg);
+  }
+}
+
+.kan-notify-item-info {
+  .kan-notify-item-variant(@color-info,@color-info-border,@color-info-text)
+}
+
+.kan-notify-item-default {
+  .kan-notify-item-variant(@color-black,@color-black-border,@color-black-text)
+}
+
+.kan-notify-item-error {
+  .kan-notify-item-variant(@color-error,@color-error-border,@color-error-text)
+}
+
+.kan-notify-item-warning {
+  .kan-notify-item-variant(@color-warning,@color-warning-border,@color-warning-text)
+}
+
+.kan-notify-item-success {
+  .kan-notify-item-variant(@color-success,@color-success-border,@color-success-text)
+}

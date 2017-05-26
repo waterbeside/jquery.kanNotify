@@ -13,15 +13,15 @@
 <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" >
 <script src="http://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
 
-<link rel="stylesheet" href="../src/kanNotify.css" >
-<script src="../src/kanNotify.js"></script>
+<link rel="stylesheet" href="../build/kanNotify.css" >
+<script src="../statics/jquery.kanNotify.js"></script>
 
 
 
 
 <!--[if lt IE 9]>
-  <script src="http://cdn.bootcss.com/html5shiv/3.7.3/html5shiv-printshiv.js"></script>  
-  <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>  
+  <script src="http://cdn.bootcss.com/html5shiv/3.7.3/html5shiv-printshiv.js"></script>
+  <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
 <![endif]-->
 
 
@@ -61,10 +61,12 @@
 
 
 <script type="text/javascript">
+// $.kanNotify.setting({position:{"left":5,"bottom":50}});
 	$('#type-btn-bar .btn').click(function(){
 		var msg = $(this).data('msg');
 		var type = $(this).data('status');
-		$.kanNotify.add({msg:msg,type:type});
+
+		$.kanNotify.add({msg:msg,type:type,auto_dismiss:0});
 	})
 
 </script>

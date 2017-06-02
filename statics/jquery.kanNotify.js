@@ -4,7 +4,15 @@
 * Website: https://github.com/waterbeside/kanNotify
 */
 
-;(function($){
+/* globals define */
+;(function(factory) {
+  "use strict";
+  if (typeof define === "function" && define.amd) {
+    define(["jquery"], factory);
+  } else {    
+    factory(jQuery);
+  }
+}(function($){
   "use strict";
     $.kanNotify = {
         defaults : {
@@ -155,4 +163,4 @@
 
     };
 
-})(jQuery);
+}));

@@ -1,24 +1,24 @@
 # KanNotify.js
 
- 
-## 簡介 
+
+## 簡介
 
 KanNotify係一個簡易的消息提示jquery插件。<br>
 KanNotify is a simple jQuery plugin that makes webpage notification easy. <br>
 
 
 
-## 用法 usage 
-### 引入頁面  <small>Add it to your page </small> 
+## 用法 usage
+### 引入頁面  <small>Add it to your page </small>
 先引入jQuery。 <br>
 引入樣式與JS文件：
 
 ```javascript
-<link rel="stylesheet" href="../src/kanNotify.css" >
-<script src="../src/kanNotify.js"></script>
+<link rel="stylesheet" href="../build/kanNotify.css" >
+<script src="../build/jquery.kanNotify.js"></script>
 ```
 
-### 使用  <small>How to work? </small> 
+### 使用  <small>How to work? </small>
 添加一個彈出通知：
 
 ```javascript
@@ -34,7 +34,7 @@ $.kanNotify.add({msg:'汝之消息也'});
 例：點擊一個按鈕彈出通知：
 
 ```HTML
-<button onclick="$.kanNotify.add('测试成功','success');"></button>
+<button onclick="$.kanNotify.add('測試成功','success');"></button>
 ```
 
 此彈出通知有五種樣式可選，分別為`success`、`error`、`info`、`warning`、`default`，默認為`default`。 使用時，設置在options的type上。例如慾弹出一個success的通知：
@@ -61,7 +61,7 @@ $.kanNotify.warning('汝之消息也');
 *注： 消息之首帶一圖標，根據汝所選之通知樣式不同而不同，默認使用`Font Awesome`字體圖標，汝何於CSS中或本插件之OPTIONS中自行設置。*
 
 
-## 設置 OPTIONS 
+## 設置 OPTIONS
 
 ```javascript
 $.kanNotify.add('string',{options});
@@ -78,7 +78,7 @@ $.kanNotify.add('string',{options});
 有`success`、`error`、`info`、`warning`、`default`、`debug`六種類型，默認為`default`
 
 ```javascript
-{type:'success'} //default is 'default' 
+{type:'success'} //default is 'default'
 ```
 
 ### 消息 msg
@@ -89,48 +89,48 @@ $.kanNotify.add('string',{options});
 {msg:'要顯示的消息內容'}  
 ```
 
-### 圖標 icon 
+### 圖標 icon
 彈出的消息開頭，會有一圖標，其默認會根據你所設的類型(type)不同而不同，type所對應的圖標，預設在iconDefault中。
 
 ```javascript
 iconDefault : {'info':'fa-info-circle','error':'fa-exclamation-circle','success':'fa-check-circle','warning':'fa-warning','default':'fa-chevron-circle-right','debug':'fa-bug'}
-} 
+}
 ```
 
 本作使用`Font Awesome`字體圖標，若單獨指定使用某圖標，可於icon設置中直接書寫對應圖標之class即可，
 
 ```javascript
-{icon:'fa-fire'} 
+{icon:'fa-fire'}
 ```
 
 若你不想使用 `Font Awesome`，可在CSS中自行設置該圖標樣式。
 
-### 容器寬度 wrapperWidth 
+### 容器寬度 wrapperWidth
 設置容器寬度，默認為auto，一行而過，長短不一，若要固定寬度，側設定wrapperWidth之值即可：
 
 ```javascript
-{wrapperWidth:300} //default is 'auto' 
+{wrapperWidth:300} //default is 'auto'
 ```
-### 允許手動關閉 allow_dismiss 
+### 允許手動關閉 allow_dismiss
 默認於通知框的右上角有個關閉按鈕`×`，可手動關閉彈出的通知框。设为false時，此按鈕將不會出現。
 
 ```javascript
-{allow_dismiss:false} //default is true 
+{allow_dismiss:false} //default is true
 ```
 
-### 自動關閉時間 auto_dismiss 
+### 自動關閉時間 auto_dismiss
 彈出的通知框默認4000毫秒將自動關閉。设为0時，彈出的通知框將不會自動關閉。
 
 ```javascript
-{auto_dismiss:0} //default is 4000 
+{auto_dismiss:0} //default is 4000
 ```
 
 
-### Callback 
+### Callback
 若options中設有callback函路，當執行完彈出通知會，會調用此函數，
 
 ```javascript
-{callback:function(response){console.log(response);} 
+{callback:function(response){console.log(response);}
 ```
 返回的参数response为
 
@@ -188,5 +188,5 @@ $.kanNotify.setting(options);
 
 
 ----------
-> Website: https://github.com/waterbeside/kanNotify <br>
+> Website: https://github.com/waterbeside/jquery.kanNotify <br>
 > QQ: 454831746
